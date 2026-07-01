@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Chilpa Sport</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section id="homeView" class="view active center-view">
+        <div class="card welcome-card">
+          <div class="logo-ball">⚽</div>
+          <h1>CHILPA SPORT</h1>
+          <p>Control y seguimiento de partidos</p>
+          <button id="openRefereeBtn" class="btn btn-primary btn-large">
+            Soy árbitro
+          </button>
+          <button id="openPublicBtn" class="btn btn-secondary btn-large">
+            Ver partido
+          </button>
+        </div>
+      </section>
+
+      <section id="loginView" class="view center-view">
+        <div class="card">
+          <button class="link-btn back-home">← Volver</button>
+          <h2>Acceso de árbitro</h2>
+          <p class="muted">La sesión quedará guardada en este teléfono.</p>
+
+          <label for="passwordInput">Contraseña</label>
+          <input
+            id="passwordInput"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Escribe la contraseña"
+          />
+          <p id="loginError" class="error hidden">Contraseña incorrecta.</p>
+
+          <button id="loginBtn" class="btn btn-primary btn-large">
+            Ingresar
+          </button>
+        </div>
+      </section>
+
+      <section id="setupView" class="view">
+        <div class="card app-card">
+          <header class="top-row">
+            <div>
+              <span class="eyebrow">CHILPA SPORT</span>
+              <h2>Nuevo partido</h2>
+            </div>
+            <button id="logoutBtn" class="btn btn-ghost btn-small">
+              Cerrar sesión
+            </button>
+          </header>
+
+          <div id="resumeBox" class="resume-box hidden">
+            <strong>Partido guardado</strong>
+            <p id="resumeText"></p>
+            <div class="button-row">
+              <button id="resumeBtn" class="btn btn-primary">Continuar</button>
+              <button id="discardBtn" class="btn btn-danger-outline">
+                Descartar
+              </button>
+            </div>
+          </div>
+
+          <label for="matchDay">Jornada</label>
+          <select id="matchDay">
+            <option value="">Selecciona la jornada</option>
+          </select>
+
+          <label for="homeTeam">Equipo local</label>
+          <select id="homeTeam"></select>
+
+          <label for="awayTeam">Equipo visitante</label>
+          <select id="awayTeam"></select>
+
+          <p id="setupError" class="error hidden">
+            Selecciona dos equipos diferentes.
+          </p>
+
+          <button id="startMatchBtn" class="btn btn-primary btn-large">
+            Iniciar partido
+          </button>
+          <button class="btn btn-ghost btn-large back-home">
+            Volver al inicio
+          </button>
+        </div>
+      </section>
+
+      <section id="refereeView" class="view">
+        <div class="app-shell">
+          <header class="sticky-header">
+            <div id="refMatchDay" class="match-day-label">Jornada 1</div>
+            <div class="quarter-pill">
+              CUARTO <span id="refQuarter">1</span>/4
+            </div>
+            <div id="refTimer" class="timer">12:00</div>
+            <div class="button-row centered">
+              <button id="timerBtn" class="btn btn-primary">Iniciar</button>
+              <button id="resetTimerBtn" class="btn btn-ghost">
+                Reiniciar
+              </button>
+            </div>
+          </header>
+
+          <div class="score-grid">
+            <article class="team-panel">
+              <h3 id="refHomeName">Local</h3>
+              <div id="refHomeScore" class="big-score">0</div>
+              <button
+                class="btn btn-goal full"
+                data-action="goal"
+                data-team="home"
+              >
+                ⚽ Gol
+              </button>
+              <button
+                class="btn btn-foul full"
+                data-action="foul"
+                data-team="home"
+              >
+                ＋ Falta
+              </button>
+              <div class="card-actions">
+                <button
+                  class="color-card yellow-card"
+                  data-action="yellow"
+                  data-team="home"
+                  aria-label="Tarjeta amarilla"
+                ></button>
+                <button
+                  class="color-card red-card"
+                  data-action="red"
+                  data-team="home"
+                  aria-label="Tarjeta roja"
+                ></button>
+              </div>
+              <div class="stats">
+                <span>Faltas: <b id="refHomeFouls">0</b></span>
+                <span>TA: <b id="refHomeYellow">0</b></span>
+                <span>TR: <b id="refHomeRed">0</b></span>
+              </div>
+            </article>
+
+            <div class="vs">VS</div>
+
+            <article class="team-panel">
+              <h3 id="refAwayName">Visitante</h3>
+              <div id="refAwayScore" class="big-score">0</div>
+              <button
+                class="btn btn-goal full"
+                data-action="goal"
+                data-team="away"
+              >
+                ⚽ Gol
+              </button>
+              <button
+                class="btn btn-foul full"
+                data-action="foul"
+                data-team="away"
+              >
+                ＋ Falta
+              </button>
+              <div class="card-actions">
+                <button
+                  class="color-card yellow-card"
+                  data-action="yellow"
+                  data-team="away"
+                  aria-label="Tarjeta amarilla"
+                ></button>
+                <button
+                  class="color-card red-card"
+                  data-action="red"
+                  data-team="away"
+                  aria-label="Tarjeta roja"
+                ></button>
+              </div>
+              <div class="stats">
+                <span>Faltas: <b id="refAwayFouls">0</b></span>
+                <span>TA: <b id="refAwayYellow">0</b></span>
+                <span>TR: <b id="refAwayRed">0</b></span>
+              </div>
+            </article>
+          </div>
+
+          <div class="button-row match-actions">
+            <button id="nextQuarterBtn" class="btn btn-secondary">
+              Siguiente cuarto
+            </button>
+            <button id="finishBtn" class="btn btn-danger">
+              Finalizar partido
+            </button>
+          </div>
+
+          <section class="card events-card">
+            <div class="top-row">
+              <h3>Eventos</h3>
+              <button id="undoBtn" class="btn btn-ghost btn-small">
+                Deshacer último
+              </button>
+            </div>
+            <div id="refEvents" class="event-list"></div>
+          </section>
+
+          <button id="exitRefereeBtn" class="btn btn-ghost btn-large">
+            Salir al inicio
+          </button>
+        </div>
+      </section>
+
+      <section id="publicView" class="view">
+        <div class="app-shell">
+          <header class="top-row public-top">
+            <button class="link-btn back-home">← Inicio</button>
+            <span class="live-pill">EN VIVO</span>
+          </header>
+
+          <div id="publicEmpty" class="empty-state">
+            <div class="logo-ball">⚽</div>
+            <h2>No hay un partido activo</h2>
+            <p>Cuando el árbitro inicie uno, aparecerá aquí.</p>
+          </div>
+
+          <div id="publicContent" class="hidden">
+            <div id="pubMatchDay" class="match-day-label public-match-day">
+              Jornada
+            </div>
+            <div class="quarter-pill center-pill">
+              CUARTO <span id="pubQuarter">1</span>/4
+            </div>
+            <div id="pubTimer" class="timer public-timer">12:00</div>
+
+            <div class="public-score">
+              <div>
+                <h3 id="pubHomeName">Local</h3>
+                <div id="pubHomeScore" class="big-score">0</div>
+              </div>
+              <div class="dash">-</div>
+              <div>
+                <h3 id="pubAwayName">Visitante</h3>
+                <div id="pubAwayScore" class="big-score">0</div>
+              </div>
+            </div>
+
+            <div id="resultBadge" class="result-badge hidden"></div>
+
+            <div class="public-stats">
+              <div><span>Faltas</span><strong id="pubHomeFouls">0</strong></div>
+              <div><span>Faltas</span><strong id="pubAwayFouls">0</strong></div>
+            </div>
+
+            <section class="card events-card">
+              <h3>Eventos del partido</h3>
+              <div id="pubEvents" class="event-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="eventModal" class="modal hidden">
+      <div class="modal-card">
+        <h2 id="eventTitle">Registrar evento</h2>
+        <p id="eventSubtitle" class="muted"></p>
+
+        <label for="playerInput">Número del jugador</label>
+        <input
+          id="playerInput"
+          type="number"
+          min="0"
+          max="99"
+          inputmode="numeric"
+          placeholder="Ej. 10"
+        />
+
+        <div class="button-row modal-actions">
+          <button id="cancelEventBtn" class="btn btn-ghost">Cancelar</button>
+          <button id="confirmEventBtn" class="btn btn-primary">
+            Registrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="finishModal" class="modal hidden">
+      <div class="modal-card">
+        <h2>Finalizar partido</h2>
+        <div id="finishContent"></div>
+        <button id="confirmFinishBtn" class="btn btn-primary btn-large">
+          Confirmar resultado
+        </button>
+        <button id="cancelFinishBtn" class="btn btn-ghost btn-large">
+          Volver
+        </button>
+      </div>
+    </div>
+
+    <div id="cardOverlay" class="card-overlay hidden">
+      <div>
+        <h1 id="overlayTitle">TARJETA</h1>
+        <h2 id="overlayTeam"></h2>
+        <p id="overlayPlayer"></p>
+        <small>Toca la pantalla para cerrar</small>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
