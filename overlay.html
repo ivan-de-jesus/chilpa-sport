@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Overlay Chilpa Sport</title>
+
+  <link rel="stylesheet" href="overlay.css" />
+</head>
+<body>
+  <main id="overlay" class="overlay hidden">
+    <section class="scorebug">
+      <div class="team team-left">
+        <span id="homeName" class="team-name">LOCAL</span>
+        <span id="homeFouls" class="fouls">Faltas 0</span>
+      </div>
+
+      <div class="score-center">
+        <div id="matchDay" class="match-day">Jornada</div>
+
+        <div class="score-row">
+          <span id="homeScore" class="score">0</span>
+          <span class="separator">-</span>
+          <span id="awayScore" class="score">0</span>
+        </div>
+
+        <div class="time-row">
+          <span id="quarter">Q1</span>
+          <span id="timer">12:00</span>
+        </div>
+      </div>
+
+      <div class="team team-right">
+        <span id="awayName" class="team-name">VISITANTE</span>
+        <span id="awayFouls" class="fouls">Faltas 0</span>
+      </div>
+    </section>
+
+    <section id="finalBadge" class="final-badge hidden">
+      Resultado final
+    </section>
+  </main>
+
+  <script type="module" src="overlay.js"></script>
+</body>
+</html>

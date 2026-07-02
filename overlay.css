@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+.scorebug {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  min-width: 900px;
+  max-width: 1180px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(2, 6, 23, 0.78);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+.team {
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 26px;
+  color: white;
+}
+
+.team-left {
+  text-align: right;
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.8), rgba(30, 64, 175, 0.75));
+}
+
+.team-right {
+  text-align: left;
+  background: linear-gradient(90deg, rgba(30, 64, 175, 0.75), rgba(15, 23, 42, 0.8));
+}
+
+.team-name {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 1000;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.fouls {
+  margin-top: 8px;
+  color: #bae6fd;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.score-center {
+  min-width: 260px;
+  padding: 10px 22px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: rgba(15, 23, 42, 0.96);
+  border-left: 2px solid rgba(255, 255, 255, 0.18);
+  border-right: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.match-day {
+  margin-bottom: 4px;
+  color: #86efac;
+  font-size: 18px;
+  font-weight: 1000;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.score {
+  min-width: 54px;
+  font-size: 58px;
+  line-height: 1;
+  font-weight: 1000;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.separator {
+  color: #cbd5e1;
+  font-size: 44px;
+  font-weight: 900;
+}
+
+.time-row {
+  margin-top: 4px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #f8fafc;
+  font-size: 24px;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-row span:first-child {
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #bfdbfe;
+  background: rgba(37, 99, 235, 0.25);
+}
+
+.final-badge {
+  position: absolute;
+  top: 150px;
+  padding: 10px 22px;
+  color: white;
+  background: rgba(239, 68, 68, 0.92);
+  border-radius: 999px;
+  font-size: 22px;
+  font-weight: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+body.compact .overlay {
+  padding-top: 18px;
+}
+
+body.compact .scorebug {
+  min-width: 660px;
+  max-width: 820px;
+  border-radius: 14px;
+}
+
+body.compact .team {
+  min-width: 190px;
+  padding: 12px 18px;
+}
+
+body.compact .team-name {
+  font-size: 24px;
+}
+
+body.compact .fouls {
+  font-size: 15px;
+}
+
+body.compact .score-center {
+  min-width: 190px;
+  padding: 8px 16px;
+}
+
+body.compact .match-day {
+  font-size: 13px;
+}
+
+body.compact .score {
+  font-size: 42px;
+}
+
+body.compact .separator {
+  font-size: 34px;
+}
+
+body.compact .time-row {
+  font-size: 18px;
+}
+
+body.low .overlay {
+  align-items: flex-end;
+  padding-top: 0;
+  padding-bottom: 32px;
+}
