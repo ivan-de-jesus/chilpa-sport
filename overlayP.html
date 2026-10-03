@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Marcador Chilpa Sport - Proyector</title>
+
+  <link rel="stylesheet" href="overlayP.css" />
+</head>
+
+<body>
+
+  <!-- ======================================================
+       MARCADOR PRINCIPAL
+  ======================================================= -->
+  <main id="overlay" class="projector-overlay hidden">
+
+    <div class="league-title">
+      CHILPA SPORT
+    </div>
+
+    <div id="matchDay" class="match-day">
+      JORNADA
+    </div>
+
+    <section class="scoreboard">
+
+      <!-- =========================
+           EQUIPO LOCAL
+      ========================== -->
+      <div class="team team-home">
+
+        <div id="homeName" class="team-name">
+          LOCAL
+        </div>
+
+        <div id="homeScore" class="score">
+          0
+        </div>
+
+        <div id="homeFouls" class="fouls">
+          Faltas 0
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           ZONA CENTRAL
+      ========================== -->
+      <div class="center">
+
+        <div id="timer" class="timer">
+          12:00
+        </div>
+
+        <div id="quarter" class="quarter">
+          Q1
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           EQUIPO VISITANTE
+      ========================== -->
+      <div class="team team-away">
+
+        <div id="awayName" class="team-name">
+          VISITANTE
+        </div>
+
+        <div id="awayScore" class="score">
+          0
+        </div>
+
+        <div id="awayFouls" class="fouls">
+          Faltas 0
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================
+       ANIMACIÓN DE GOL
+  ======================================================= -->
+  <section
+    id="goalCelebration"
+    class="goal-celebration hidden"
+  >
+
+    <div class="goal-background"></div>
+
+    <div class="goal-content">
+
+      <div class="goal-title">
+        ¡GOOOOOL!
+      </div>
+
+      <div id="goalTeam" class="goal-team">
+        EQUIPO
+      </div>
+
+      <div class="goal-animation">
+
+        <!-- Balón -->
+        <div id="goalBall" class="ball">
+          ⚽
+        </div>
+
+
+        <!-- Portería -->
+        <div class="goal">
+
+          <div class="net"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================================
+       RESULTADO FINAL
+  ======================================================= -->
+  <section
+    id="finalScreen"
+    class="final-screen hidden"
+  >
+
+    <div class="final-title">
+      RESULTADO FINAL
+    </div>
+
+    <div id="finalResult" class="final-result">
+      0 - 0
+    </div>
+
+    <div id="finalWinner" class="final-winner">
+      PARTIDO FINALIZADO
+    </div>
+
+  </section>
+
+
+  <!-- ======================================================
+       JAVASCRIPT
+  ======================================================= -->
+  <script
+    type="module"
+    src="overlayP.js">
+  </script>
+
+</body>
+</html>
