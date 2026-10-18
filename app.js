@@ -39,18 +39,20 @@ const matchRef = ref(database, "partido_actual");
 ========================================================= */
 
 const TEAMS = [
-  "Real San Pablo",
-  "Real STN Cruz",
+  "Tigres",
   "Chilpas FC",
-  "Millan",
-  "Cruz Azul",
+  "Halcones",
+  "FC Barcelona",
+  "Necaxa",
   "Pharys",
+  "Toluca",
   "Borussia",
-  "León",
-  "Inter STN Cruz",
-  "Niupi",
+  "Inter Santa Cruz",
+  "Novatos",
   "FC R10",
-  "Toluca FC"
+  "León",
+  "Deportivo Vagos",
+  "Deportivo La Chole"
 ];
 
 const PASSWORD = "CHS";
