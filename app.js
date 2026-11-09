@@ -52,7 +52,7 @@ const TEAMS = [
   "FC R10",
   "León",
   "Deportivo Vagos",
-  "Deportivo La Chole"
+  "Los de siempre"
 ];
 
 const PASSWORD = "CHS";
